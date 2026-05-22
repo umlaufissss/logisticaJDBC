@@ -1,0 +1,8 @@
+package org.example.DAO;
+
+import org.example.model.HistoricoEntrega;
+
+public class HistoricoDao 
+{
+    public static void RegistrarEventoDeEntrega(HistoricoEntrega h)
+}

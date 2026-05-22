@@ -1,0 +1,6 @@
+package org.example.DAO;
+
+public class PedidoDao 
+{
+    public static void Gerar
+}
