@@ -1,0 +1,72 @@
+package org.example.views;
+
+import java.time.LocalDateTime;
+
+import org.example.model.Motorista;
+
+public class ViewCadastrarMotorista extends Main 
+{
+    public static void cadastrarMotorista()
+    {
+        String nome, cnh, endereco, veiculo, cidade_base;
+        LocalDateTime horario = null;
+
+        int opcao;
+
+        System.out.println("====================================");
+        System.out.println("        CADASTRAR MOTORISTA        ");
+        System.out.println("====================================");
+
+        System.out.println("Digite as informações do novo motorista:");
+
+        System.out.println("NOME: ");
+        nome = SC.nextLine();
+
+        System.out.println("CNH: ");
+        cnh = SC.nextLine();
+
+        System.out.println("ENDEREÇO: ");
+        endereco = SC.nextLine();
+
+        System.out.println("VEÍCULO: ");
+        veiculo = SC.nextLine();
+
+        System.out.println("CIDADE_BASE: ");
+        cidade_base = SC.nextLine();
+
+        var novoMotorista = new Motorista(nome, cnh, endereco, veiculo, cidade_base, horario);
+
+        System.out.println("Verifique as informações");
+        System.out.println(novoMotorista);
+        System.out.println("""
+            Prosseguir?
+            [1] - Sim    | [2] - Não 
+                """);
+        opcao = SC.nextInt();
+        SC.nextLine();
+
+        if(opcao == 1)
+        {
+            LocalDateTime created_at = horario.now();
+            novoMotorista.setCreated_at(created_at);
+            //mandar para a service aqui
+        }
+        else if (opcao != 2)
+        {
+            System.out.println("Opção inválida, redirecionamento por padrão para o inicio!");
+        }
+
+        try
+        {
+            Thread.sleep(3000);
+        }
+        catch(InterruptedException e)
+        {
+            Thread.currentThread().interrupt();
+        }
+        finally
+        {
+            inicio
+        }
+    }
+}
